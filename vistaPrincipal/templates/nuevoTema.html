@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Nuevo Tema
+{% endblock %}
+
+
+{% block contenido %}
+    <h2>Crear nuevo tema</h2>
+    <form class="row" method="POST" action="{% url 'vistaPrincipal:nuevoTema' %}">
+        {% csrf_token %}
+        <div>
+            <label>Nombre del tema</label>
+            <input type="text" name="nombreTema" required>
+        </div>
+        <div>
+            <label>Ingrese su descripcion</label>
+            <input type="text" name="descripcionTema">
+        </div>
+        <div>
+            <input type="submit" value="Registrar">
+        </div>
+    </form>
+{% endblock %}

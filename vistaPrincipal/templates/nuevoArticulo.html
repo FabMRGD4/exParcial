@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Nuevo Articulo
+{% endblock %}
+
+
+{% block contenido %}
+    <h2>Crear nuevo articulo</h2>
+    <form class="row" method="POST" action="{% url 'vistaPrincipal:nuevoArticulo' %}">
+        {% csrf_token %}
+        <div>
+            <label>Titulo del articulo</label>
+            <input type="text" name="tituloArticulo" required>
+        </div>
+        <div>
+            <label>Seleccione el tema del articulo</label>
+            <select name="temaSeleccionado" required>
+                <option value="" selected> </option>
+                {% for temaInfo in listaTemas %}
+                    <option value="{{ temaInfo.id }}"> {{ temaInfo.nombreTema }} </option>
+                {% endfor %}
+
+            </select>
+        </div>
+        <div>
+            <label>Ingrese el contenido del articulo</label>
+            <input type="text" name="contenidoArticulo">
+        <div>
+            <input type="submit" value="Registrar">
+        </div>
+    </form>
+{% endblock %}

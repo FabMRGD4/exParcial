@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ objBusqueda.textoBusqueda }}
+{% endblock %}
+
+
+{% block contenido %}
+<h1>Resultados de la busqueda de: {{ objBusqueda.textoBusqueda }}</h1>
+
+    {% if listaArticulos %}
+        {% for articulos in listaArticulos %}   
+        <div>
+            <a href="{% url 'vistaPrincipal:vistaArticulo' articulos.id %}"> {{ articulos.tituloArticulo }} </a>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No se encontraron artículos.</p>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "layout.html" %} 
+
+{% block title %}
+    {{ objTema.nombreTema }}
+{% endblock %}
+
+{% block contenido %}
+    <h1>{{ objTema.nombreTema }}</h1>
+    <div>
+        <h4>{{ objTema.descripcionTema }}</h4>
+    </div>
+    <br>
+    {% for articulos in listaArticulos %}   
+    <div>
+        <a href="{% url 'vistaPrincipal:vistaArticulo' articulos.id %}"> {{ articulos.tituloArticulo }} </a>
+    </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "layout.html" %} 
+
+{% block title %}
+    {{ objArticulo.tituloArticulo }}
+{% endblock %}
+
+{% block contenido %}
+    <h1>{{ objArticulo.tituloArticulo }}</h1>
+    <h2> {{ objArticulo.temaSeleccionado.nombreTema }} </h2>
+    <br>
+    <div>
+        <h4>{{ objArticulo.contenidoArticulo }}</h4>
+    </div>
+{% endblock %}
